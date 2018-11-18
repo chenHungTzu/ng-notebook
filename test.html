@@ -1,0 +1,20 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<ng-notebook displaycontent="false" name="chen" notecollection="[]"></ng-notebook>
+<script type="text/javascript" src="/ng-notebook.js"></script>
+
+
+<script>
+        const ele = document.querySelector('ng-notebook');
+        ele.addEventListener('onnotechange', (event) => {
+         console.log(event.detail)
+         append(event.detail);
+        }); 
+
+        function append(payload){
+            let col = ele.getAttribute("notecollection");
+            let arr = JSON.parse(col);
+            arr.push(payload);
+            ele.setAttribute('notecollection',JSON.stringify(arr));
+        }
+</script>
+
